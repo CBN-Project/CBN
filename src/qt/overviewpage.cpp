@@ -32,7 +32,7 @@
 #define ICON_OFFSET 16
 #define NUM_ITEMS 7
 
-#define NEWS_URL "https://ziofabry.twt.it/wordpress/category/cbn/"
+#define NEWS_URL "https://ziofabry.twt.it/wordpress/category/cbn/feed/"
 
 extern CWallet* pwalletMain;
 
