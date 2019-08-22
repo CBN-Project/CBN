@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=CBN
+Comment=CBN P2P Cryptocurrency
+Exec=cbn-qt %u
+Terminal=false
+Type=Application
+Icon=cbn128
+MimeType=x-scheme-handler/cbn;
+Categories=Office;Finance;
+Name[en_US]=cbn-qt.desktop

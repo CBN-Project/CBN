@@ -1,0 +1,26 @@
+# /etc/conf.d/cbnd: config file for /etc/init.d/cbnd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/cbn/cbn.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/cbnd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/cbnd.pid"
+
+# Where to write cbnd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/cbnd"
+
+# User and group to own cbnd process
+#BITCOIND_USER="cbn"
+#BITCOIND_GROUP="cbn"
+
+# Path to cbnd executable
+#BITCOIND_BIN="/usr/bin/cbnd"
+
+# Nice value to run cbnd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
