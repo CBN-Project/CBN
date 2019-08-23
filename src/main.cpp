@@ -1558,18 +1558,18 @@ int64_t GetBlockValue(int nHeight)
 
     /* block rewards. */
 
-         if (nHeight >=       1 && nHeight <=       1) {nSubsidy = 40000.0000; }
-    else if (nHeight >=       2 && nHeight <=    1000) {nSubsidy =     0.0000; }
-    else if (nHeight >=    1001 && nHeight <=  519400) {nSubsidy =     0.2000; }
-    else if (nHeight >=  519401 && nHeight <= 1037800) {nSubsidy =     0.1980; }
-    else if (nHeight >= 1037801 && nHeight <= 1556200) {nSubsidy =     0.1960; }
-    else if (nHeight >= 1556201 && nHeight <= 2074600) {nSubsidy =     0.1940; }
-    else if (nHeight >= 2074601 && nHeight <= 2593000) {nSubsidy =     0.1920; }
-    else if (nHeight >= 2593001 && nHeight <= 3111400) {nSubsidy =     0.1900; }
-    else if (nHeight >= 3111401 && nHeight <= 3629800) {nSubsidy =     0.1880; }
-    else if (nHeight >= 3629801 && nHeight <= 4148200) {nSubsidy =     0.1860; }
-    else if (nHeight >= 4148201 && nHeight <= 4666600) {nSubsidy =     0.1840; }
-    else if (nHeight >= 4666601                      ) {nSubsidy =     0.1820; }
+         if (nHeight >=       1 && nHeight <=       1) {nSubsidy = 50000.0000 * COIN; }
+    else if (nHeight >=       2 && nHeight <=    1000) {nSubsidy =     0.0000 * COIN; }
+    else if (nHeight >=    1001 && nHeight <=  519400) {nSubsidy =     0.2000 * COIN; }
+    else if (nHeight >=  519401 && nHeight <= 1037800) {nSubsidy =     0.1980 * COIN; }
+    else if (nHeight >= 1037801 && nHeight <= 1556200) {nSubsidy =     0.1960 * COIN; }
+    else if (nHeight >= 1556201 && nHeight <= 2074600) {nSubsidy =     0.1940 * COIN; }
+    else if (nHeight >= 2074601 && nHeight <= 2593000) {nSubsidy =     0.1920 * COIN; }
+    else if (nHeight >= 2593001 && nHeight <= 3111400) {nSubsidy =     0.1900 * COIN; }
+    else if (nHeight >= 3111401 && nHeight <= 3629800) {nSubsidy =     0.1880 * COIN; }
+    else if (nHeight >= 3629801 && nHeight <= 4148200) {nSubsidy =     0.1860 * COIN; }
+    else if (nHeight >= 4148201 && nHeight <= 4666600) {nSubsidy =     0.1840 * COIN; }
+    else if (nHeight >= 4666601                      ) {nSubsidy =     0.1820 * COIN; }
 
     //Enable to cap the coin supply
     // Check if we reached the coin max supply.
