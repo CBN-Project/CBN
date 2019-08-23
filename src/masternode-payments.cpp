@@ -315,14 +315,19 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
     CAmount treasuryPayment = GetTreasuryPayment(pindexPrev->nHeight, blockValue);
 
     if (hasPayment && masternodePayment > 0) {
+        CScript payeeTreasury;
 
-        CBitcoinAddress addressTreasury;
-        if (!addressTreasury.SetString(Params().TreasuryAddress())) {
-            LogPrintf("CMasternodePayments::FillBlockPayee - Invalid Treasury address\n");
+        if( Params().TreasuryAddress().length() > 0 && treasuryPayment > 0 ) {
+            CBitcoinAddress addressTreasury;
+            if (!addressTreasury.SetString(Params().TreasuryAddress())) {
+                LogPrintf("CMasternodePayments::FillBlockPayee - Invalid Treasury address\n");
+                treasuryPayment = 0;
+            }
+
+            payeeTreasury = GetScriptForDestination(addressTreasury.Get());
+        } else {
             treasuryPayment = 0;
         }
-
-        CScript payeeTreasury = GetScriptForDestination(addressTreasury.Get());
 
         if (fProofOfStake) {
             /**For Proof Of Stake vout[0] must be null
