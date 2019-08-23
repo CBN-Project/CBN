@@ -315,10 +315,10 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
     CAmount treasuryPayment = GetTreasuryPayment(pindexPrev->nHeight, blockValue);
 
     if (hasPayment && masternodePayment > 0) {
+        CBitcoinAddress addressTreasury;
         CScript payeeTreasury;
 
         if( Params().TreasuryAddress().length() > 0 && treasuryPayment > 0 ) {
-            CBitcoinAddress addressTreasury;
             if (!addressTreasury.SetString(Params().TreasuryAddress())) {
                 LogPrintf("CMasternodePayments::FillBlockPayee - Invalid Treasury address\n");
                 treasuryPayment = 0;
