@@ -26,7 +26,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
 {
     // set reference point, paddings
     int paddingLeft = 14;
-    int paddingTop = 450;
+    int paddingTop = 425;
     int titleVersionVSpace = 17;
     int titleCopyrightVSpace = 32;
 
@@ -64,7 +64,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     //titleTextWidth = fm.width(titleText);
     pixPaint.drawText(paddingLeft, paddingTop, titleText);
 
-    pixPaint.setPen(QColor(255,255,255));
+    pixPaint.setPen(QColor(53,57,60));
     pixPaint.setFont(QFont(font, 15 * fontFactor));
     pixPaint.drawText(paddingLeft, paddingTop + titleVersionVSpace, versionText);
 
@@ -74,6 +74,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 12, copyrightTextDash);
     pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 24, copyrightTextPIVX);
     pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 36, copyrightTextCBN);
+
+    pixPaint.setFont(QFont(font, 7 * fontFactor));
     pixPaint.drawText(paddingLeft, paddingTop + titleCopyrightVSpace + 48, copyrightTextIcons);
 
     // draw additional text if special network
@@ -117,7 +119,7 @@ static void InitMessage(SplashScreen* splash, const std::string& message)
         Qt::QueuedConnection,
         Q_ARG(QString, QString::fromStdString(message)),
         Q_ARG(int, Qt::AlignBottom | Qt::AlignHCenter),
-        Q_ARG(QColor, QColor(100, 100, 100)));
+        Q_ARG(QColor, QColor(0, 255, 0)));
 }
 
 static void ShowProgress(SplashScreen* splash, const std::string& title, int nProgress)
