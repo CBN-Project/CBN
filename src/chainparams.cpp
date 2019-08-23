@@ -30,14 +30,14 @@ struct SeedSpec6 {
 /*
 ---------------
 algorithm: quark
-pzTimestamp: 20190810 CBN by ZioFabry
+pzTimestamp: 20190823 CBN by ZioFabry
 pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
 bits: 504365040
-time: 1565429408
-merkle root hash: c9aab324e0706684ad213bb2f2fb743c98a66275b639e080ba00044f796ed2bc
+time: 1566556888
+merkle root hash: bde5e7c436152badd8eb13c3dfb89ebb5b388f1c00e5872d6544455f2291b91d
 Searching for genesis hash...
-nonce: 6613724
-genesis hash: 0000043375a49a5e9d86999e7d46f6b9b70cd0d7336e33b14e5a972fe9683bd8
+nonce: 350780
+genesis hash: 000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402
 */
 
 /**
@@ -68,27 +68,27 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (    0, uint256("0x0000043375a49a5e9d86999e7d46f6b9b70cd0d7336e33b14e5a972fe9683bd8"));
+    (    0, uint256("0x000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1565429408, // * UNIX timestamp of last checkpoint block
+    1566556888, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint (the tx=... number in the SetBestChain debug.log lines)
     1440        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x00000bf562fe9d57aa202838eee8a6c7c5d566574b5d8c9207bc403def449347"));
+    boost::assign::map_list_of(0, uint256("0x000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1565429408, // * UNIX timestamp of last checkpoint block
+    1566556888, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint (the tx=... number in the SetBestChain debug.log lines)
     1440        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x00000bf562fe9d57aa202838eee8a6c7c5d566574b5d8c9207bc403def449347"));
+    boost::assign::map_list_of(0, uint256("0x000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
     1550524693, // * UNIX timestamp of last checkpoint block
@@ -139,7 +139,19 @@ public:
         nLastPOWBlock                  = 1000;
         nModifierUpdateBlock           = 1;
 
-        const char* pszTimestamp       = "20190810 CBN by ZioFabry";
+/*
+---------------
+algorithm: quark
+pzTimestamp: 20190823 CBN by ZioFabry
+pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+bits: 504365040
+time: 1566556888
+merkle root hash: bde5e7c436152badd8eb13c3dfb89ebb5b388f1c00e5872d6544455f2291b91d
+Searching for genesis hash...
+nonce: 350780
+genesis hash: 000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402
+*/
+        const char* pszTimestamp       = "20190823 CBN by ZioFabry";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -150,13 +162,13 @@ public:
         genesis.hashPrevBlock          = 0;
         genesis.hashMerkleRoot         = genesis.BuildMerkleTree();
         genesis.nVersion               = 1;
-        genesis.nTime                  = 1565429408;
+        genesis.nTime                  = 1566556888;
         genesis.nBits                  = 504365040;
-        genesis.nNonce                 = 6613724;
+        genesis.nNonce                 = 350780;
 
         hashGenesisBlock               = genesis.GetHash();
-        assert(hashGenesisBlock        == uint256("0x0000043375a49a5e9d86999e7d46f6b9b70cd0d7336e33b14e5a972fe9683bd8"));
-        assert(genesis.hashMerkleRoot  == uint256("0xc9aab324e0706684ad213bb2f2fb743c98a66275b639e080ba00044f796ed2bc"));
+        assert(hashGenesisBlock        == uint256("0x000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402"));
+        assert(genesis.hashMerkleRoot  == uint256("0xbde5e7c436152badd8eb13c3dfb89ebb5b388f1c00e5872d6544455f2291b91d"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,  28);  // Start with 'C' from https://en.bitcoin.it/wiki/List_of_address_prefixes
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,  63);  // Start with 'S' from https://en.bitcoin.it/wiki/List_of_address_prefixes
@@ -236,15 +248,15 @@ public:
         nMaturity                      = 5;
         nMasternodeCountDrift          = 4;
         nModifierUpdateBlock           = 1;
-        nMaxMoneyOut                   = 12000000 * COIN;
+        nMaxMoneyOut                   = 1000000 * COIN; // 1 million max supply
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime                  = 1565429408;
-        genesis.nNonce                 = 6613724;
+        genesis.nTime                  = 1566556888;
+        genesis.nNonce                 = 350780;
 
         hashGenesisBlock               = genesis.GetHash();
-        assert(hashGenesisBlock        == uint256("0x0000043375a49a5e9d86999e7d46f6b9b70cd0d7336e33b14e5a972fe9683bd8"));
-        assert(genesis.hashMerkleRoot  == uint256("0xc9aab324e0706684ad213bb2f2fb743c98a66275b639e080ba00044f796ed2bc"));
+        assert(hashGenesisBlock        == uint256("0x000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402"));
+        assert(genesis.hashMerkleRoot  == uint256("0xbde5e7c436152badd8eb13c3dfb89ebb5b388f1c00e5872d6544455f2291b91d"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,  88);  // Start with 'c' from https://en.bitcoin.it/wiki/List_of_address_prefixes
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 125);  // Start with 's' from https://en.bitcoin.it/wiki/List_of_address_prefixes
@@ -302,13 +314,13 @@ public:
         nTargetTimespan = 24 * 60 * 60; // CBN: 1 day
         nTargetSpacing = 2 * 60;        // CBN: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1516926684;
-        genesis.nBits = 0x207fffff;
-        genesis.nNonce = 20542300;
+        genesis.nTime = 1566556888;
+        genesis.nBits = 504365040;
+        genesis.nNonce = 350780;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 14034;
-       // assert(hashGenesisBlock == uint256("0x229874aa8a92df3347600978e226ba57bc994b9fa291ea50519afafca2d50ed3"));
+        // assert(hashGenesisBlock        == uint256("0x000003e617a4fa30e29e380303cc75e3f68b369343eed70c88daccaf0fafe402"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Regtest mode doesn't have any DNS seeds.
